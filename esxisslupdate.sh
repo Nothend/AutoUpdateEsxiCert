@@ -14,8 +14,8 @@ remaindays=$(expr '(' "$SecondBynoAfterdays" - "$SecondByToday" ')' / 86400)
 
 #如果过期时间小于2天，则复制远端文件到esxi，并重启控制台使证书生效
 if [ "$remaindays" -le 2 ] ; then 
-    scp root@192.168.1.1:/root/.acme.sh/domain.com/fullchain.cer /etc/vmware/ssl/rui.crt
-    scp root@192.168.1.1:/root/.acme.sh/domain.com/domain.com.key /etc/vmware/ssl/rui.key
+    scp root@192.168.1.1:/root/.acme.sh/opt.atticus.vip/fullchain.cer /etc/vmware/ssl/rui.crt
+    scp root@192.168.1.1:/root/.acme.sh/opt.atticus.vip/opt.atticus.vip.key /etc/vmware/ssl/rui.key
     /etc/init.d/hostd restart
     /etc/init.d/vpxa restart
 fi
